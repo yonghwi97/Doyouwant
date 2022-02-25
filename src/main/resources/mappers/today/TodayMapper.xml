@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.projectEx.dao.ITodayDAO">
+	<!-- 전체 도서 조회(SQL) -->
+		<resultMap id="todayResult" type="com.boot.projectEx.model.TodayVO">
+			<result property="todayNo" column="todayNo"/>
+			<result property="interNo" column="interNo"/>
+			<result property="prdNo" column="prdNo"/>
+				<result property="prdName" column="prdName"/>
+			<result property="prdImg3" column="prdImg3"/>
+			<result property="prdPrice" column="prdPrice"/>
+
+		</resultMap>
+		
+		<select id="today" resultMap="todayResult"  parameterType="string">
+				SELECT p.prdNo, p.prdName, p.prdPrice, p.prdImg3, t.todayNo, t.interNo
+				FROM product p, today t
+				WHERE p.prdNo = t.prdNo  AND t.interNo=#{interNo}
+		</select>
+	
+</mapper>

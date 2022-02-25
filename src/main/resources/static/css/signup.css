@@ -1,0 +1,137 @@
+:root{
+    --main-bg-color: black;
+    --center-align: 0 auto;
+    --color-custom1: rgb(211, 31, 31);
+    --color-custom2-a: rgb(80, 80, 80);
+    --color-custom2-b: rgba(80, 80, 80, 1);
+    --color-custom2-c: rgba(180, 180, 180, 1);
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-webkit-validation-bubble-message { display: none; }
+
+body {
+    margin: var(--center-align);
+    font-family: 'GmarketSansBold', sans-serif;
+    background-color: black;
+}
+
+h1 {
+    font-size: 52px;
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+}
+
+.alignTable { margin-right: 5%; }
+
+table {
+    width: 50%;
+    height: 100%;
+    margin: var(--center-align);
+    font-size: 18px;
+    border-collapse: separate !important;
+    border-spacing: 0 45px !important;
+    margin-left: 25%;
+}
+
+/* fieldset {
+    width: 50%;
+    margin: var(--center-align);
+    margin-top: 50px ;
+    border: none;
+} */
+
+/* fieldset > legend { 
+    margin: var(--center-align);
+    font-size: 24px;
+} */
+
+#joinSubmit {
+    width: 50%;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    margin: var(--center-align);
+    transition: all 0.2s;
+    font-size: 20px;
+    color: white;
+    background-color: cornflowerblue;
+    font-family: 'GmarketSansBold', sans-serif;
+    margin-left: 15%;
+
+}
+
+#joinSubmit:hover { opacity: 0.7; }
+
+#joinSubmit:active {
+    opacity: 0.45;
+    /* border: 1px solid white; */
+}
+
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--color-custom2-a);
+
+    font-size: 28px;
+
+}
+
+
+input[type=text]:hover, input[type=password]:hover, input[type=email]:hover, input[type=tel]:hover {
+    background-color: var(--color-custom2-c);
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=tel]:focus {
+    outline: 3px solid var(--color-custom2-a);
+    background-color: white;
+}
+
+th {
+    color: white;
+    text-align: right;
+    width: 130px;
+}
+
+label { color: white; }
+
+input[type=radio] {
+    width: 25px;
+    height: 25px;
+    vertical-align: -7px;
+    transform: scale(1.25);
+
+}
+
+input[type=radio]:checked {
+    background-color: aqua;
+}
+
+/* not focus outline transition use */
+.void {
+    transition: all 0.2s;
+
+    outline: 0px solid var(--color-custom2-a);
+}
+
+.fail {
+    transition: all 0.3s;
+    outline: 3px solid var(--color-custom1);
+}
+.fail:hover {
+    background-color: var(--color-custom1);
+}
+
+#cell_radio_td {
+    float: left;
+    margin-left: 1%;
+}
+

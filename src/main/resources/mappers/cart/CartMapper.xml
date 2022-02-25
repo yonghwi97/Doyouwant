@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.boot.projectEx.dao.ICartDAO">
+ 	<select id="checkPrdInCart" parameterType="hashmap"
+ 								resultType="int">
+ 	   SELECT COUNT(*)
+       FROM cart
+       WHERE prdNo = #{prdNo} AND memId = #{memId}   
+      						
+ 	</select>
+ 	
+ 	<select id="getCount" parameterType="com.boot.projectEx.model.CartVO"
+ 								resultType="int">
+ 	   SELECT count
+       FROM cart
+       WHERE prdNo = #{prdNo} AND memId = #{memId}     						
+ 	</select>
+ 	
+ 	<insert id="insertCart" parameterType="com.boot.projectEx.model.CartVO">
+ 		INSERT INTO cart(memId, prdNo, count)
+ 		VALUES(#{memId}, #{prdNo}, #{count})
+ 		
+ 	</insert>
+ 	
+ 	<update id="updateQtyInCart" parameterType="com.boot.projectEx.model.CartVO">
+ 		UPDATE cart
+ 		SET count = #{count}
+ 		WHERE memId = #{memId} AND prdNo=#{prdNo}
+ 	</update>
+ 	
+ 	<select id="cartList" parameterType="string" resultType="com.boot.projectEx.model.CartVO">
+ 		SELECT c.cartNo, p.prdNo, p.prdImg, p.prdName, p.prdPrice, c.count, c.memId
+ 		FROM product p, cart c
+ 		WHERE p.prdNo = c.prdNo AND c.memid=#{memId}
+ 		ORDER BY c.cartNo
+ 	</select>
+ 	
+ 	<delete id="deleteCart" parameterType="com.boot.projectEx.model.CartVO">
+ 		DELETE FROM cart
+ 		WHERE memId=#{memId} AND prdNo=#{prdNo}
+ 	</delete>
+ </mapper>

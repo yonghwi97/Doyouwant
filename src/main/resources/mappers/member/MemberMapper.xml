@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.projectEx.dao.IMemberDAO">
+	<!-- 전체 도서 조회(SQL) -->
+		<resultMap id="MemberResult" type="com.boot.projectEx.model.MemberVO">
+			<result property="memId" column="memId"/>
+			<result property="memPwd" column="memPwd"/>
+			<result property="memName" column="memName"/>
+			<result property="memSex" column="memSex"/>
+			<result property="memEmail" column="memEmail"/>
+			<result property="memJoinDate" column="memJoinDate"/>
+		</resultMap>
+		
+		<select id="login" resultMap="MemberResult" parameterType="hashmap">
+				SELECT * FROM member WHERE memId=#{id} AND memPwd=#{pwd}
+		</select>
+		
+		<!-- 회원 아이디 중복 조회 -->
+		<select id="memIdCheck" resultType="string" parameterType="string">
+			SELECT memId FROM member WHERE memId=#{memId}
+		</select>
+		
+		<!-- 회원가입 -->
+		<insert id="signUp" parameterType="com.boot.projectEx.model.MemberVO">
+			  INSERT INTO member (memId, memPwd, memName, memEmail, memSex, memHP) VALUES(#{memId}, #{memPwd}, #{memName}, #{memEmail}, #{memSex}, #{memHP}) 
+		</insert>
+	
+</mapper>

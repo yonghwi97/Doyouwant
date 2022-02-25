@@ -1,0 +1,100 @@
+#content2 {
+	/* margin-top: 100px; */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentSlide2 {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.content2-Title {
+    font-weight: bold;
+}
+
+.content-Container2 {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 1200px;
+    transition: all 0.6s;
+}
+
+.content-Container2-Item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.content2-Img  {
+    position: relative;
+}
+
+.content2-Img  img{
+    width: 100%;
+    height: 270px;
+    border-radius: 20px;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+}
+
+
+.Out-box {
+    margin: 10px;
+}
+
+.Out-box:hover .content2-Box-footer {
+    transform: translateY(0px);
+}
+
+.content2-Box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url("./img/portfolio-3.jpg");
+    width: 230px;
+    height: 270px;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    overflow: hidden;
+    cursor:pointer;
+}
+
+.content2-Box-footer {
+    color: black;
+    padding: 22px;
+    text-align: left;
+    font-weight: bold;
+    z-index: 1;
+    background-color: white;
+    transition: all 0.4s;
+    transform: translateY(100px);
+}
+
+#nextBtn {
+    position: fixed;
+    float: right;
+    top: 500px;
+    z-index: 7;
+    right: 3%;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+#backBtn {
+    position: fixed;
+    float: left;
+    top: 500px;
+    z-index: 7;
+    left: 3%;
+    padding: 15px;
+    border-radius: 20px;
+}
